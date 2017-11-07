@@ -1,0 +1,100 @@
+
+<div>
+	   <input type="text" placeholder="search engine" type="search"
+		ng-model="test"><div>
+		<div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <button float="left" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">add/edit employee here</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        </div>
+        <div class="modal-body">
+         <div >
+
+					<form>
+
+						<label> Add New Employee </label> <br>
+						<label> firstname </label>  <br> <input type="text" data-ng-model="firstname" required="true"><br> 
+						<label> lastname </label>  <br> <input type="text" data-ng-model="lastname" required="true"><br>
+						<label> phone</label>   <br> <input type="text" data-ng-model="phone" required="true"> <br> 
+						<label>  email</label> <br> <input type="emial" data-ng-model="email" required="true"><br>
+						<label> username </label><br> <input type="text" data-ng-model="username" required="true"><br>
+						<label>   password </label> <br> <input type="text" data-ng-model="password" required="true"><br>
+						<button class="btn btn-secondary" data-ng-click="addemployee()" required="true">Add</button>
+						<button class="btn btn-secondary" data-ng-click="SaveChanges()" required="true"
+							>Save Changes</button>
+						<input class="btn btn-secondary" type="reset">Reset
+
+					</form>
+
+					<label>Attach Project To an Employee</label> 
+					<select data-ng-model="project">
+						 
+						<option data-ng-repeat="x in Project" value={{x.id}}>{{x.projectname}}</option>
+					</select>
+					
+					 <label>Attach Employee To Project</label> <select
+						data-ng-model="employee">
+						 
+						<option data-ng-repeat="employee in EmployeeManagement" value={{employee.id}}>{{employee.firstname}}</option>
+					</select>
+					
+					<button class="btn btn-secondary"
+						data-ng-click="attachProjectToEmployee()">Attach</button>
+
+				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+		
+		</div> 
+
+	<table class="table table-striped table-bordered">
+
+		<thead>
+
+			<tr>
+<th></th>
+				<th>first name</th>
+				<th>last name</th>
+				<th>phone</th>
+				<th>email</th>
+				<th>edit</th>
+
+
+			</tr>
+		</thead>
+		<tr id="tr-{{employee.id }}"
+			data-ng-repeat="employee in EmployeeManagement |filter:test">
+            <td>{{ $index + 1 }}</td>
+			<td>{{employee.firstname}}</td>
+			<td>{{employee.lastname}}</td>
+			<td>{{employee.phone}}</td>
+			<td>{{employee.email}}</td>
+			<td><button data-ng-click="deleteemployee(employee.id)"
+				class="glyphicon glyphicon-remove" style="color: red"></button>  
+				<button data-ng-click="editEmployeeInfo(employee.id)" style="color: blue" data-toggle="modal" data-target="#myModal"
+				class="glyphicon glyphicon-edit showmodelforview" ></button></td>
+
+
+
+
+		</tr>
+	</table>
+</div>
+
+
+

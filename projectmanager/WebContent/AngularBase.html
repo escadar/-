@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html  ng-app="crudapp">
+<head>
+<style type="text/css">
+body {
+	background-color: silver;
+}
+
+</style>
+<meta charset="UTF-8">
+<title>Lior Asras</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+</head>
+ 
+<body  ng-controller="productController">
+	
+	<p>  
+	<input text="text"  ng-model="searchItems"> search here </input>
+	</p>
+	
+	
+    <!-- Table to output data -->
+ 
+    
+    <h1> Employee Information</h1>
+    
+    <form name="commentForm" method="post">
+    <table cellpadding="5" cellspacing="5">
+    	<tr>
+        	<td><strong>First name :</strong></td>
+            <td>
+            	<input type="text" ng-model="name">
+            </td>
+        </tr>
+    	<tr>
+        	<td><strong>Last Name :</strong></td>
+            <td>
+            	<input type="text" ng-model="lastname">
+            </td>
+        </tr>
+    	<tr>
+        	<td><strong>Role :</strong></td>
+            <td>
+            	<input type="text" ng-model="role">
+            </td>
+        </tr>
+    	<tr>
+        	<td><strong>Department :</strong></td>
+            <td>
+            	<input type="text" ng-model="department">
+            </td>
+        </tr>
+    	<tr>
+        	<td>&nbsp;</td>
+            <td>
+                <input type="button" value="Add" ng-click="add()">
+                <input type="button" value="Save" ng-click="edit()">
+			</td>
+        </tr>
+    </table>
+    </form>
+    <table align="right" cellpadding="5" cellspacing="0" border="1" width="50%">
+    <thead>
+            <tr>
+            <td><strong>EmployeeID </strong> </td>
+                <th>First name </th>
+                <th>Last name </th>
+                <th>Role </th>
+                <th>Department</th>
+                
+            </tr>
+    </thead>
+    <tbody>
+            <tr ng-repeat="product in listProducts | filter:searchItems">
+         		   <td>{{product.id = $index}}</td>
+                <td align="center">{{product.name}}</td>
+                <td align="center">{{product.lastname}}</td>
+                <td align="center">{{product.role}}</td>
+                 <td align="center">{{product.department}}</td>
+                <td>
+                    <a href="#" ng-click="del(product.id)">DELETE</a>
+                    <a href="#" ng-click="selectEdit(product.id)">EDIT</a>
+                </td>
+            </tr>
+    </tbody>
+    </table>
+	<script type="text/javascript">
+	
+		<!-- Define crudapp as a Angular application. -->
+		var crudapp = angular.module('crudapp', []);
+		
+		<!-- Application controller for the module. -->
+		crudapp.controller('productController', function($scope){
+			
+			<!-- Populate table with products data -->
+			$scope.listProducts = [
+				{name:'Escadae', lastname:'Escadae', role:'Manager', dapartment: 'Google'},
+				{name:'Escadae', lastname:'Escadae', role:'Client-side', dapartment: 'Bezeq'},
+				{name:'Escadae', lastname:'Escadae', role:'Server-side', dapartment: 'Wix'},
+				{name:'Escadae', lastname:'Escadae', role:'Google', dapartment:'Microsoft'},
+				
+			];
+			
+			<!-- Edit and update row function -->
+			$scope.edit = function(){
+				var index = getSelectedIndex($scope.id);
+				$scope.listProducts[index].name = $scope.name;
+				$scope.listProducts[index].lastname = $scope.lastname;
+				$scope.listProducts[index].role = $scope.role;
+				$scope.listProducts[index].dapartment = $scope.dapartment;
+			};
+			
+			<!-- Select the row of data and update the form function -->
+			$scope.selectEdit = function(id){
+				var index = getSelectedIndex(id);
+				var product = $scope.listProducts[index];
+				$scope.name = product.name;
+				$scope.lastname = product.lastname;
+				$scope.role = product.role;
+				$scope.dapartment = product.dapartment;
+				
+			};
+			
+			
+			
+			<!-- Delete function -->
+			$scope.del = function(id){
+				var result = confirm('Are you sure?');
+				if (result===true){	
+					var index = getSelectedIndex(id);
+					$scope.listProducts.splice(index, 1);
+				};
+			};
+			
+			
+			
+			<!-- Add a new product function -->
+			$scope.add = function(id){
+				$scope.listProducts.push({
+					name:$scope.name, 
+					lastname:$scope.lastname, 
+					role:$scope.role, 
+					dapartment:$scope.dapartment 	
+				});
+				<!-- Resets the form -->
+				$scope.name = '';
+				$scope.lastname = '';
+				$scope.role = '';
+				$scope.dapartment = '';
+			};
+			
+			<!-- Function finds unique product data based on its id -->
+			function getSelectedIndex(id){
+				for(var i=0; i<$scope.listProducts.length; i++)
+					if($scope.listProducts[i].id==id)
+						return i;
+					return -1;	
+			};
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+    </script>
+	
+</body>
+</html>

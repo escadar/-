@@ -1,0 +1,109 @@
+ 
+ 
+<style>
+  #clickToCloseForm{
+    
+ /*  float: right;margin-left: 289px;position: absolute; */
+  /*   position:absolute;top:0px;right:0px;   */
+   
+    width:30px;
+    float:right:
+   
+}
+</style> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+	$("#clickToShowForm").click(function(){
+		  $("#dialog").show(); 
+		  
+			}); 
+	$("#clickToCloseForm").click(function() { 
+		$("#dialog").close();
+
+	});
+	$("#resetForm").click(function() { 
+		$(".myform")[0].reset();
+});
+	 }); 
+
+</script>
+
+<div> 
+<input type="text" placeholder="search engine" 
+				type="search" ng-model="test">
+ 
+	<table class="table table-striped table-bordered" >
+
+		<thead>
+
+			<tr>
+				
+				<th>firstname</th>
+				<th>lastname</th>
+				<th>phone</th>
+				<th>email</th>
+				<th>edit</th>
+
+
+			</tr>
+		</thead>
+		<tr id="tr-{{x.id }}" data-ng-repeat="x in EmployeeManagement |filter:test">
+			
+			<td>{{x.firstname}}</td>
+			<td>{{x.lastname}}</td>
+			<td>{{x.phone}}</td>
+			<td>{{x.email}}</td>
+			<td><span data-ng-click="deleteemployee(x.user)" class="glyphicon glyphicon-remove" style="color:red"></span>
+			<span  data-ng-click="editEmployeeInfo(x.id)" class="glyphicon glyphicon-edit" style="color:blue"></span></td>
+			
+	          
+	  <a class="btn btn-deafult" role="button" id="clickToShowForm">Click Here To Show Form</a>  
+			
+		</tr>
+	</table>
+</div>
+<div id="dialog"  class=" borderColor form "  > 
+<form  class="myform" align="center"> 
+	 
+	  <label> Add New Employee </label>  <br>
+		  firstname <br>  <input type="text" name="firstname" data-ng-model="firstname"> <br>
+		  lastname <br> <input type="text" name="lastname" data-ng-model="lastname"> <br>
+		  phone <br>  <input type="text" name="phone" data-ng-model="phone"> <br>
+		  email  <br>  <input type="text"  name="email" data-ng-model="email"> <br>
+		   username <br>  <input type="text"  data-ng-model="username" name="username"> <br>
+		     password <br> <input type="text"  data-ng-model="password" name="password"> <br>
+		  
+  
+
+		  <button type="button" data-ng-click="addemployee()">add </button>
+		   <button type="button" data-ng-click="SaveChanges()">SaveChanges </button>
+		  <button  id="clickToCloseForm" class="glyphicon glyphicon-remove ClickToclose" type="button" >
+             <span aria-hidden="true">&times;</span></button>
+		  <input type="button" id="resetForm" value="Reset form">
+	 
+	</form> 
+  Employee:
+<select data-ng-model="EmployeeManagement">
+<option value="">{{x.firstname}}</option>
+<option data-ng-repeat="x in EmployeeManagement" value="{{x.id}}">
+  {{x.firstname}}
+</option>   
+ </select>
+ 
+   Attach project to employee:
+<select data-ng-model="Project">
+<option value="">{{x.projectname}}</option>
+<option data-ng-repeat="x in Project" value="{{x.id}}">
+  {{x.projectname}}
+</option>   
+ </select>
+ <a class="btn-deafult" role="button" data-ng-click="addProect()">Add Project</a>
+ </div>
+
+ 
+ 

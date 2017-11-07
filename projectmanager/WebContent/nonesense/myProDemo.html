@@ -1,0 +1,127 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+ 
+<style type="text/css">
+  .borderColor {
+        border-width: 3px;
+        border-style: solid;
+        border-color: #006400;
+    }
+body {
+
+	 
+	width: 1024px !important;
+	font-size: 15px;
+	
+		
+}
+#logo{
+ style:position: fixed !important; 
+
+}
+
+ 
+ table {
+	width: 100%;
+	border-collapse: collapse;
+	
+} 
+
+.footer {
+	text-align: center;
+}
+
+.title {
+	text-align: center;
+	font-weight: 200;
+	font-stretch: wider;
+}
+
+.avatar{
+  
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -1;
+ 
+}
+.customerNav , .employeeNav, .managerNav{
+background-color: #333
+}
+
+</style>
+</head>
+
+<body data-ng-app="myApp" >
+
+	<table>
+		<tr >
+			<td><button  class="btn btn-active  littletd" role="button" href="#!LogOut">Log Out</button> 
+			  <button  class="btn btn-active  littletd" role="button">errors</button></td>
+			<td colspan="90%" class="title" colspan="100%"><h1 align="center"> Hour Report Follow Up </h1></td>
+			<td> <img  src="image/Ea-logo.jpg" alt="Avatar" class="avatar"></td>
+			
+		</tr>
+
+		<tr class="customerNav">
+		 	<td><a class=" btn btn-success" role="button" href="#!two">ActiveProjects</a>
+			 <a class=" btn btn-success " role="button" href="#!ProjectHourReport">projectHourReport</a>
+			 </tr>
+			 
+			 <tr class="employeeNav">
+			 <td >
+			 <a class="btn btn-success" role="button" href="#!one">Last Week Report</a>
+			 <a class=" btn btn-success employeePage" role="button" href="#!MyReport">My Report</a>
+			
+			</td> </tr>
+			 
+			 <tr class="managerNav" >
+			 <td>
+			 <a class=" btn btn-success" role="button" href="#!three">ProjectManagerList</a> 
+			 
+			 <a class=" btn btn-succes" role="button" href="#!EmployeeManagement">EmployeeManagement</a>
+			  <a class=" btn " role="button" href="#!ProjectManagement">ProjectManagement</a>
+			   <a class=" btn btn-success " role="button" href="#!CustomerManagement">CustomerManagement</a>
+			   <a class="btn btn-success " role="button" href="#!managerSettings">managerSettings</a> 
+			    <a class="btn btn-success" role="button" href="#!HourReports">Hour Reports</a> </td>
+			    </tr>
+		
+		<tr><td>   </td></tr>
+		<tr>
+			<td colspan="100%">
+			
+
+				<div data-ng-view></div>
+
+			</td>
+		</tr>
+
+		<tr class="coloredTR footer">
+			<td colspan="100%">© 2017 EscadaR ALL RIGHTS RESERVED</td>
+		</tr>
+
+	</table>
+	<script type="text/javascript" src="app.js">
+		
+	</script>
+	</body>
+	</html>

@@ -1,0 +1,148 @@
+
+
+
+<form>
+	<label for="first">Big Customers</label> <input type="radio"
+		ng-model="content" value="first"> <label for="other">Active
+		Customers</label> <input type="radio" ng-model="content" value="other">
+
+
+	<label for="third">Projects About to Finish</label> <input type="radio"
+		ng-model="content" value="third"> <label for="forth">Active
+		Projects</label> <input type="radio" ng-model="content" checked="checked"
+		value="forth">
+</form>
+
+
+<div class="BigCustomers" ng-show="content == 'first'">
+	<table class="table table-striped table-bordered">
+		<caption>Big Customers</caption>
+		<thead>
+			<tr>
+				<td> </td>
+				<th>company name</th>
+				<th>company number</th>
+				<th>contact name</th>
+				<th>email</th>
+				<th>phone</th>
+				<th>contactname</th>
+
+
+
+
+
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in BigCustomers">
+			<td>{{ $index + 1 }}</td>
+			<td>{{x.companyname}}</td>
+			<td>{{x.companynumber}}</td>
+			<td>{{x.contactname}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.phone}}</td>
+			<td>{{x.contactname}}</td>
+			<td></td>
+
+
+
+		</tr>
+
+	</table>
+</div>
+
+
+<div class="ActiveCustomers" ng-show="content == 'other'">
+	<table class="table table-striped table-bordered">
+		<caption>Active Customers</caption>
+		<thead>
+			<tr>
+
+				<td></td>
+				<th>company name</th>
+				<th>company number</th>
+				<th>contact name</th>
+				<th>email</th>
+				<th>phone</th>
+				<th>contactname</th>
+
+
+
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in ActiveCustomers">
+			<td>{{ $index + 1 }}</td>
+			<td>{{x.companyname}}</td>
+			<td>{{x.companynumber}}</td>
+			<td>{{x.contactname}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.phone}}</td>
+			<td>{{x.contactname}}</td>
+
+		</tr>
+
+	</table>
+</div>
+
+
+<div class="ProjectsAbouttoFinish" ng-show="content == 'third'">
+	<table class="table table-striped table-bordered">
+		<caption>Projects About to Finish</caption>
+		<thead>
+			<tr>
+				<td></td>
+				<th>project name</th>
+				<th>customer</th>
+				<th>customer project manager</th>
+				<th>project manager email</th>
+				<th>project manager phone</th>
+				<th>start date</th>
+				<th>end date</th>
+
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in ProjectsAboutToFinish">
+			<td>{{ $index + 1 }}</td>
+			<td>{{x.projectname}}</td>
+			<td>{{x.customer.companyname}}</td>
+			<td>{{x.customerprojectmanager}}</td>
+			<td>{{x.projectmanageremail}}</td>
+			<td>{{x.projectmanagerphone}}</td>
+			<td>{{x.startdate}}</td>
+			<td>{{x.enddate}}</td>
+
+
+		</tr>
+
+	</table>
+</div>
+<div class="ActiveProjects" ng-show="content == 'forth'">
+	<table class="table table-striped table-bordered">
+		<caption>Active Projects</caption>
+		<thead>
+			<tr>
+				<td></td>
+				<th>projectname</th>
+				<td>companyname</td>
+				<th>customerprojectmanager</th>
+				<th>projectmanageremail</th>
+				<th>projectmanagerphone</th>
+				<th>startdate</th>
+				<th>enddate</th>
+
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in ActiveProjects">
+			<td>{{ $index + 1 }}</td>
+			<td>{{x.projectname}}</td>
+			<td>{{x.customer.companyname}}</td>
+			<td>{{x.customerprojectmanager}}</td>
+			<td>{{x.projectmanageremail}}</td>
+			<td>{{x.projectmanagerphone}}</td>
+			<td>{{x.startdate}}</td>
+			<td>{{x.enddate}}</td>
+
+
+		</tr>
+
+	</table>
+</div>

@@ -1,0 +1,28 @@
+
+ 
+	<table class="table table-striped table-bordered">
+
+		<thead>
+			<tr>
+               
+				<td>first name</td>
+				<td>project name</td>
+				<td>date</td>
+				<td>start date</td>
+				<td>end date</td>
+				<td>description</td>
+				
+				 
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in Employee" >
+               
+				<td>{{x.firstname}}</td>
+				<td>{{x.projectname}}</td>
+				<td>{{x.date}}</td>
+				<td>{{x.starttime}}</td>
+				<td>{{x.endtime}}</td>
+				<td>{{x.description}}</td>
+			</tr>
+		 
+	</table>

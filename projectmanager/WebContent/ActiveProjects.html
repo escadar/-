@@ -1,0 +1,36 @@
+
+<div>
+	<table class="table table-striped table-bordered">
+		<caption>Active-Projects</caption>
+
+		<thead>
+			<tr>
+
+
+				<th>projectname</th>
+				<th>customerprojectmanager</th>
+				<th>projectmanageremail</th>
+				<th>projectmanagerphone</th>
+				<th>startdate</th>
+				<th>enddate</th>
+
+			</tr>
+		</thead>
+		<tr data-ng-repeat="x in ActiveProjectsbyC ">
+
+			<td>{{x.projectname}}</td>
+			<td>{{x.customerprojectmanager}}</td>
+			<td>{{x.projectmanageremail}}</td>
+			<td>{{x.projectmanagerphone}}</td>
+			<td>{{x.startdate}}</td>
+			<td>{{x.enddate}}</td>
+
+
+		</tr>
+
+	</table>
+
+
+
+</div>
+

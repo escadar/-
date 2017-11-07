@@ -1,0 +1,23 @@
+
+
+
+<form>
+	<input ng-model="starttime" id="starttime" type="time"> <input
+		ng-model="endtime" id="endtime" type="time">
+	<p>From: {{starttime }} To: {{endtime}}</p>
+	<button class=" btn btn-success" data-ng-click="setHours()">set
+		hours for employees</button>
+
+
+	Sunday <input data-ng-model="week.Sunday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+	Monday <input data-ng-model="week.Monday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+	Tuesday <input data-ng-model="week.Tuesday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+	Wednesday <input data-ng-model="week.Wednesday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+	Thursday <input data-ng-model="week.Thursday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+	Friday <input data-ng-model="week.Friday" type="checkbox"data-ng-true-value="'true,'" data-ng-true-value="'false,'">
+    Saturday <input data-ng-model="week.Saturday" type="checkbox"data-ng-true-value="'true'" data-ng-true-value="'false'">
+<button data-ng-click="setDays()"> setDays</button>
+</form>
+
+
+

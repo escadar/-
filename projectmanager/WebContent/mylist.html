@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+ .mylist>ul>li{
+ color:red;
+ 
+ }
+
+</style>
+
+<meta charset="windows-1255">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+<script type="text/javascript">
+      function init(){
+    	  
+    	  var li1 = document.createElement('li');
+    	  li1.innerText ='abc';
+    	  
+    	var li2 = document.createElement('li');
+    	  li2.innerText ='123';
+    	 var li3 = document.createElement('li');
+    	  li3.innerText ='a23';
+    	  var li4 = document.createElement('li');
+    	  li4.innerText ='b12';
+    	  
+    	  var ul = document.createElement('ul');
+    	  ul.appendChild(li1);
+    	  ul.appendChild(li2);
+    	  ul.appendChild(li3);
+    	  ul.appendChild(li4);
+    	  
+    	  var div = document.getElementById('list1');
+    	  div.appendChild(ul); 
+    	    
+      }
+      function colorlist(){
+    $("div.mylist>ul>li:first").css("color","red");
+    $("div.mylist>ul>li:last").css("color","red");
+      }
+
+</script>
+</head>
+<body onload="init()">
+<div id="list1" class="mylist"></div>
+<button onclick="colorlist()"> button </button>
+
+
+</body>
+</html>

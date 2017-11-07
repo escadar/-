@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script>
+	var app = angular.module("mytable", []);
+	app.controller("controller1", function($scope) {
+		$scope.employees = [ {
+			firstname : 'escadar',
+			lastname : 'agego',
+			duty : 'traveler',
+			department : 'world'
+		}, {
+			firstname : 'escadar',
+			lastname : 'agego',
+			duty : 'traveler',
+			department : 'world'
+		}, {
+			firstname : 'escadar',
+			lastname : 'agego',
+			duty : 'traveler',
+			department : 'world'
+		} ];
+
+		$scope.addRow = function() {
+			$scope.employees.push({
+				'firstname' : $scope.firstname,
+				'lastname' : $scope.lastname,
+				'duty' : $scope.duty,
+				'department' : $scope.department
+			})
+			$scope.firstname = '';
+			$scope.lastname = '';
+			$scope.duty = '';
+			$scope.department = '';
+		};
+	});
+	
+		function SomeDeleteRowFunction(button) {
+
+			var p = button.parentNode.parentNode;
+			p.parentNode.removeChild(p);
+		}
+
+	 
+</script>
+<style type="text/css">
+body {
+	font-family: arial;
+	font-size: 12px;
+	font-color: black;
+	direction: rtl;
+	background-color: aqua;
+}
+
+table {
+	border: 1;
+	width: 500;
+}
+</style>
+</head>
+<body data-ng-app="mytable" ng-controller="controller1">
+	<table border="1">
+		<tr>
+			<td><input type="text" placeholder="חיפוש בטבלה" element with
+				type="search"></td>
+				<td><input type="submit"></td>
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr>
+			<td>
+				<table class="littletable" border="1">
+					<tr>
+						<th>firstname</th>
+						<th>lastname</th>
+						<th>duty</th>
+						<th>department</th>
+					</tr>
+					<tr ng-repeat="x in employees">
+						<td>{{ x.firstname }}</td>
+						<td>{{ x.lastname }}</td>
+						<td>{{ x.duty }}</td>
+						<td>{{x.department}}</td>
+
+						<td><input type="button"
+							onclick="SomeDeleteRowFunction(this)">delete</td>
+					</tr>
+				</table>
+
+			</td>
+
+			<td>
+				<table>
+					<tr>
+						<td>
+
+							<form action="/action_page.php" >
+								firstname:<input type="text" name="firstname" ng-model="firstname"></input><br> 
+								lastname:<input type="text" name="lastname" ng-model="lastname"></input><br>
+								duty:<input type="text" name="duty" ng-model="duty"></input><br>
+								department:<input type="text" name="department"
+									ng-model="department"></input><br>
+
+								<button ng-click="addRow()" type="button">add</button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</td>
+
+		</tr>
+
+	</table>
+</body>
+</html>

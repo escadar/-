@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Insert title here</title>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<script>
+	
+</script>
+<body data-ng-app="myapp" ng-controller="controller">
+
+	<table border="1">
+	 <thead>
+			<tr>
+			<th> </th>
+				<th>id</th>
+				<th>customer</th>
+				<th>projectname</th>
+				<th>customerprojectmanager</th>
+				
+			</tr>
+		</thead>
+		<tr ng-repeat="x in escadar">
+		<td>{{ $index + 1 }}</td>
+			<td>{{x.id}}</td>
+			<td>{{x.projectname}}</td>
+			<td>{{x.customer}}</td>
+			<td>{{x.customerprojectmanager}}</td>
+			
+			
+			<td> <button ng-click="update" >update </button></td>
+			<td><button type="button" ng-click="removePerson($index)">delete </button> </td>
+			
+			 
+		</tr>
+	</table>
+	
+	<form>
+	 
+<p>Add New customer</p>
+projectname:<input type="text" name="id" data-ng-model="id" ></input><br>
+projectmanagerphone:<input type="projectname" name="LastName" ng-model="projectname"></input><br>
+Job:<input type="text" name="customer" ng-model="customer"></input><br>
+Class:<input type="text" name="customerprojectmanager" ng-model="customerprojectmanager"></input><br>
+<button ng-click="addrow()" type="button">add</button>
+	
+	</form>
+<script>
+var app = angular.module('myapp', []);
+app.controller('controller', function($scope, $http) {
+     $http.get("json/ProjectsAboutToFinish.json").then(
+			function(response) {
+				$scope.escadar = response.data;
+
+			});  
+    $scope.removePerson = function(index){
+        $scope.escadar.splice(index, 1);
+      };  
+      
+      $scope.addrow= function(){
+    	 
+
+    		    $scope.escadar.push({
+    		    id: $scope.id,
+    		    projectname: $scope.projectname,
+    		    customer: $scope.customer,
+    		    customerprojectmanager:$scope.customerprojectmanager
+    		});
+
+      };
+     
+/*       $scope.addrow= function(){
+    	  
+     $scope.escadar.push({'id':$scope.id, 'projectname': $scope.projectname, 'customer':$scope.customer,
+    		  'customerprojectmanager':$scope.customerprojectmanager });
+    		  
+    	   $scope.id ='';
+    	   $scope.projectname ='';
+    	   $scope.customer ='';
+    	   $scope.customerprojectmanager ='';
+    	  
+        };   */
+     
+});
+</script>
+
+
+
+</body>
+</html>
